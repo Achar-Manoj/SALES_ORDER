@@ -6,6 +6,7 @@ define behavior for ZIMA_SALESORD_HEAD alias salesorder_head
 //implementation in class zcl_ma_sales_order
 persistent table ztma_salesord_hd
 draft table ztma_salord_hd_d
+late numbering
 authorization master ( instance )
 etag master changeddate
 lock master total etag Localchangeddate
@@ -29,6 +30,7 @@ lock master total etag Localchangeddate
 define behavior for ZIMA_SALESORD_ITEM alias salesorder_item
 persistent table ztma_salesord_it
 draft table ztma_salord_it_d
+late numbering
 lock dependent by _head
 authorization dependent by _head
 etag master changeddate
