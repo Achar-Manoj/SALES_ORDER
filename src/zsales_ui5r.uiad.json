@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "{{appDescription}}",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Sales Order"
+  },
+  "ui5AppDetails": {
+    "appId": "salesorder"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_3B0A83918F951AB57CDEA7E84E2A8B5AD782BA8B_TM",
+    "semanticObject": "salesorder",
+    "action": "view",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_3B0A83918F951AB57CDEA7E84E2A8B5AD782BA8B_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Sales Order"
+      }
+    }
+  ]
+}

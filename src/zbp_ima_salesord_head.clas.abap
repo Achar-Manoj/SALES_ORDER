@@ -1,0 +1,5 @@
+CLASS zbp_ima_salesord_head DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zima_salesord_head.
+ENDCLASS.
+
+CLASS zbp_ima_salesord_head IMPLEMENTATION.
+ENDCLASS.

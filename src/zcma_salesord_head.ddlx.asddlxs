@@ -1,0 +1,77 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+annotate entity ZCMA_SALESORD_HEAD
+    with 
+{
+    @UI : { lineItem      : [ { position: 10 } ], 
+            selectionField: [ { position: 10 } ],
+            identification: [ { position: 10, label: 'Sales Order', importance: #HIGH } ] }
+    @EndUserText.label: 'Sales Order'
+    @Search.defaultSearchElement: true
+    @Search.fuzzinessThreshold: 0.9
+    @Search.ranking: #HIGH
+    @Consumption.filter: {selectionType: #SINGLE, multipleSelections: true}
+    Salesorder;
+    
+    @UI : { lineItem      : [ { position: 20 }],
+            selectionField: [ { position: 20 }] }
+    @UI.identification: [ { position: 10,  label: 'Sales Order Type', importance: #HIGH}]
+    @EndUserText.label: 'Sales Order Type'
+    @Search.defaultSearchElement: true
+    @Consumption.filter: {selectionType: #SINGLE, multipleSelections: true}  
+    Salesordertype;
+    
+    @UI : { lineItem      : [ { position: 30 }],
+            selectionField: [ { position: 30 }] }
+    @UI.identification: [ { position: 30, label: 'Sales Organization', importance: #HIGH}]
+    @EndUserText.label: 'Sales Organization'
+    Salesorganization;
+    
+    @UI : { lineItem: [ { position: 40 }],selectionField: [ { position: 40 }] }
+    @UI.identification: [ { position: 40, label: 'Distribution Channel', importance: #HIGH}]
+    @EndUserText.label: 'Distribution Channel'
+    Distributionchannel;
+    
+    @UI : { lineItem: [ { position: 50 }],selectionField: [ { position: 50 }] }
+    @UI.identification: [ { position: 50, label: 'Division', importance: #HIGH}]
+    @EndUserText.label: 'Division'
+    Division;
+    
+    @UI : { lineItem: [ { position: 60 }],selectionField: [ { position: 60 }] }
+    @UI.identification: [ { position: 60, label: 'Sold to Party', importance: #HIGH}]
+    @EndUserText.label: 'Sold to Party'
+    Soldtoparty;
+    
+    @UI : { lineItem: [ { position: 70 }] }
+    @UI.identification: [ { position: 70, label: 'Amount', importance: #HIGH}]
+    @EndUserText.label: 'Amount'
+    Netamount;
+    
+    @UI : { lineItem: [ { position: 80 }] }
+    @UI.identification: [ { position: 80, label: 'Currency'}]
+    @EndUserText.label: 'Currency'
+    Currencycode;
+    
+    @UI : { lineItem: [ { position: 90 }],selectionField: [ { position: 90 }] }
+    @EndUserText.label: 'Created on'
+    Creationdate;
+    
+    @UI : { lineItem: [ { position: 100 }],selectionField: [ { position: 100 }] }
+    @EndUserText.label: 'Created by'
+    Createdbyuser;
+    
+    @UI : { lineItem: [ { position: 110 }] }
+    @EndUserText.label: 'Last Changed on'
+    Changeddate;
+    
+    @UI : { lineItem: [ { position: 120 }] }
+    @EndUserText.label: 'Last Changed by'
+    Changedbyuser;
+    
+    @UI.identification: [{hidden: true}]
+    localchangeddate;
+    
+    /* Associations */
+   // _item;
+    
+}

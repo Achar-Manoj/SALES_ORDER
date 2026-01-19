@@ -1,0 +1,23 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZCMA_SALESORD_HEAD
+{
+  use create;
+  use update;
+  use delete;
+  use association _item { create; with draft; }
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+}
+
+define behavior for ZCMA_SALESORD_ITEM
+{
+  use update;
+  use delete;
+  use association _head { with draft; }
+}

@@ -1,0 +1,41 @@
+managed implementation in class zbp_ima_salesord_head unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZIMA_SALESORD_HEAD alias salesorder_head
+//implementation in class zcl_ma_sales_order
+persistent table ztma_salesord_hd
+draft table ztma_salord_hd_d
+authorization master ( instance )
+etag master changeddate
+lock master total etag Localchangeddate
+{
+  create ( authorization : global );
+  update;
+  delete;
+  //field ( numbering : managed, readonly ) salesorder;
+  field ( readonly ) salesorder;
+  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser;
+  field ( readonly ) NetAmount, CurrencyCode;
+  association _item { create; with draft; }
+  determination updateNetAmount on save { field NetAmount; }
+  draft action Edit;
+  draft action Resume;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+}
+
+define behavior for ZIMA_SALESORD_ITEM alias salesorder_item
+persistent table ztma_salesord_it
+draft table ztma_salord_it_d
+lock dependent by _head
+authorization dependent by _head
+etag master changeddate
+{
+  update;
+  delete;
+  field ( readonly ) Salesorder, Salesorderitem;
+  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser;
+  association _head { with draft; }
+}

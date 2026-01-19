@@ -1,0 +1,73 @@
+@Metadata.layer: #CUSTOMER
+@Search.searchable: true
+annotate entity ZCMA_SALESORD_ITEM
+    with 
+{
+    @UI : { lineItem: [ { position: 10} ], selectionField: [ { position: 10 } ] }
+    @UI.identification: [ { position: 10, label: 'Sales Order', importance: #HIGH}]
+    @EndUserText.label: 'Sales Order'
+    @Search.defaultSearchElement: true
+    @Search.fuzzinessThreshold: 0.9
+    @Search.ranking: #HIGH
+    @Consumption.filter: {selectionType: #SINGLE, multipleSelections: true}
+    Salesorder;
+    
+    @UI : { lineItem: [ { position: 20 }],selectionField: [ { position: 20 }] }
+    @UI.identification: [ { position: 20, label: 'Sales Order Item', importance: #HIGH}]
+    @UI.facet: [ { id: 'General', type: #IDENTIFICATION_REFERENCE, label: 'Sales Order Details', parentId: 'GeneralInfo' } ]
+    @EndUserText.label: 'Sales Order Item'
+    Salesorderitem;
+    
+    @UI : { lineItem: [ { position: 30 }],selectionField: [ { position: 30 }] }
+    @UI.identification: [ { position: 30, label: 'Material', importance: #HIGH}]
+    @EndUserText.label: 'Material'
+    Material;
+    
+    @UI : { lineItem: [ { position: 40 }],selectionField: [ { position: 40 }] }
+    @UI.identification: [ { position: 40, label: 'Plant', importance: #HIGH}]
+    @EndUserText.label: 'Plant'
+    Plant;
+    
+    @UI : { lineItem: [ { position: 50 }] }
+    @UI.identification: [ { position: 50, label: 'Quantity', importance: #HIGH}]
+    @EndUserText.label: 'Quantity'
+    Orderquantity;
+    
+    @UI : { lineItem: [ { position: 60 }] }
+    @UI.identification: [ { position: 60, label: 'Unit' }]
+    @EndUserText.label: 'Unit'
+    Orderquantityunit;
+    
+    @UI : { lineItem: [ { position: 70 }] }
+    @UI.identification: [ { position: 70, label: 'Amount', importance: #HIGH}]
+    @EndUserText.label: 'Amount'
+    Netamount;
+    
+    @UI : { lineItem: [ { position: 80 }] }
+    @UI.identification: [ { position: 80, label: 'Currency'}]
+    @EndUserText.label: 'Currency'
+    Currencycode;
+
+    @UI : { lineItem: [ { position: 90 }],selectionField: [ { position: 90 }] }
+    @EndUserText.label: 'Created on'
+    Creationdate;
+    
+    @UI : { lineItem: [ { position: 100 }],selectionField: [ { position: 100 }] }
+    @EndUserText.label: 'Created by'
+    Createdbyuser;
+    
+    @UI : { lineItem: [ { position: 110 }] }
+    @EndUserText.label: 'Last Changed on'
+    Changeddate;
+    
+    @UI : { lineItem: [ { position: 120 }] }
+    @EndUserText.label: 'Last Changed by'
+    Changedbyuser;
+    
+     @UI.identification: [{hidden: true}]
+    localchangeddate;
+    
+    /* Associations */
+    //_head;
+    
+}
