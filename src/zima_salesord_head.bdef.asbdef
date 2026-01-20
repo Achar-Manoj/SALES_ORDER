@@ -16,10 +16,10 @@ lock master total etag Localchangeddate
   delete;
   //field ( numbering : managed, readonly ) salesorder;
   field ( readonly ) salesorder;
-  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser;
+  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser, localchangeddate;
   field ( readonly ) NetAmount, CurrencyCode;
   association _item { create; with draft; }
-  determination updateNetAmount on save { field NetAmount; }
+  determination updateNetAmount on save { create; update; }
   draft action Edit;
   draft action Resume;
   draft action Activate optimized;
@@ -38,6 +38,7 @@ etag master changeddate
   update;
   delete;
   field ( readonly ) Salesorder, Salesorderitem;
-  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser;
+  field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser, localchangeddate;
   association _head { with draft; }
+  determination updateamount on save { create; update; }
 }

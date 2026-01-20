@@ -1,8 +1,31 @@
 @Metadata.layer: #CUSTOMER
 @Search.searchable: true
+
+@UI.headerInfo: { 
+      typeName: 'Sales Order',
+      typeNamePlural: 'Sales Orders',
+      title: { type: #STANDARD, value: 'Salesorder' }
+//      description: { type: #STANDARD, value: 'Salesorderitem' }
+      }
+      
 annotate entity ZCMA_SALESORD_HEAD
     with 
-{
+{   
+   @UI.facet: [
+          { id: 'idSalesOrderInfo',
+            type: #COLLECTION,
+            label: 'Sales Order Details',
+            position: 10
+          },
+          { id: 'idSalesOrderData',
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Sales Order Data',
+            position: 10,
+            purpose: #STANDARD,
+            parentId: 'idSalesOrderInfo'
+//            targetQualifier: 'tqSalesOrderData'
+          }
+    ]
     @UI : { lineItem      : [ { position: 10 } ], 
             selectionField: [ { position: 10 } ],
             identification: [ { position: 10, label: 'Sales Order', importance: #HIGH } ] }

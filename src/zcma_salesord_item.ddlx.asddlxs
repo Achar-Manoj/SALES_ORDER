@@ -1,8 +1,37 @@
 @Metadata.layer: #CUSTOMER
 @Search.searchable: true
+@UI.headerInfo: { 
+      typeName: 'Sales Order item',
+      typeNamePlural: 'Sales Order items',
+      title: { type: #STANDARD, value: 'Salesorderitem' }
+//      description: { type: #STANDARD, value: 'Salesorderitem' }
+      }
+      
 annotate entity ZCMA_SALESORD_ITEM
     with 
-{
+{  
+    @UI.facet: [
+          { id: 'idSalesOrderItemInfo',
+            type: #COLLECTION,
+            label: 'Sales Order Details',
+            position: 10
+          },
+          { id: 'idSalesOrderItemData',
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Sales Order Data',
+            position: 10,
+            purpose: #STANDARD,
+            parentId: 'idSalesOrderItemInfo'
+//            targetQualifier: 'tqSalesOrderData'
+          },
+          { id: 'idSalesOrderitem',
+            type: #FIELDGROUP_REFERENCE,
+            label: 'Sales Order item',
+            position: 20,
+            parentId: 'idSalesOrderItemInfo',
+            targetQualifier: 'tqSalesOrderitem'
+          }
+     ]
     @UI : { lineItem: [ { position: 10} ], selectionField: [ { position: 10 } ] }
     @UI.identification: [ { position: 10, label: 'Sales Order', importance: #HIGH}]
     @EndUserText.label: 'Sales Order'
@@ -13,8 +42,8 @@ annotate entity ZCMA_SALESORD_ITEM
     Salesorder;
     
     @UI : { lineItem: [ { position: 20 }],selectionField: [ { position: 20 }] }
-    @UI.identification: [ { position: 20, label: 'Sales Order Item', importance: #HIGH}]
-    @UI.facet: [ { id: 'General', type: #IDENTIFICATION_REFERENCE, label: 'Sales Order Details', parentId: 'GeneralInfo' } ]
+    @UI.identification: [ { position: 20, label: 'Sales Order Item', importance: #HIGH, qualifier: 'tqSalesOrderitem' }]
+//    @UI.facet: [ { id: 'General', type: #IDENTIFICATION_REFERENCE, label: 'Sales Order Details', parentId: 'GeneralInfo' } ]
     @EndUserText.label: 'Sales Order Item'
     Salesorderitem;
     
@@ -48,11 +77,11 @@ annotate entity ZCMA_SALESORD_ITEM
     @EndUserText.label: 'Currency'
     Currencycode;
 
-    @UI : { lineItem: [ { position: 90 }],selectionField: [ { position: 90 }] }
+    @UI : { lineItem: [ { position: 90 }] }
     @EndUserText.label: 'Created on'
     Creationdate;
     
-    @UI : { lineItem: [ { position: 100 }],selectionField: [ { position: 100 }] }
+    @UI : { lineItem: [ { position: 100 }] }
     @EndUserText.label: 'Created by'
     Createdbyuser;
     
