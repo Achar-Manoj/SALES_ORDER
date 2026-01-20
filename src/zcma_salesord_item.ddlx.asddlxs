@@ -3,7 +3,7 @@
 @UI.headerInfo: { 
       typeName: 'Sales Order item',
       typeNamePlural: 'Sales Order items',
-      title: { type: #STANDARD, value: 'Salesorder' },
+      title: { type: #STANDARD, value: 'Salesorder', label: 'Sales Order' },
       description: { type: #STANDARD, value: 'Salesorderitem' }
       }
       

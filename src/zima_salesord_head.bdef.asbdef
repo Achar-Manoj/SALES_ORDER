@@ -31,6 +31,7 @@ define behavior for ZIMA_SALESORD_ITEM alias salesorder_item
 persistent table ztma_salesord_it
 draft table ztma_salord_it_d
 late numbering
+with additional save
 lock dependent by _head
 authorization dependent by _head
 etag master changeddate
@@ -40,6 +41,5 @@ etag master changeddate
   field ( readonly ) Salesorder, Salesorderitem;
   field ( readonly ) creationdate, createdbyuser, changeddate, changedbyuser, localchangeddate;
   association _head { with draft; }
-  determination updateitem on save { create; update; }
   determination updateamount on save { create; update; }
 }

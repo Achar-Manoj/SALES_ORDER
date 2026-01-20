@@ -4,7 +4,7 @@
 @UI.headerInfo: { 
       typeName: 'Sales Order',
       typeNamePlural: 'Sales Orders',
-      title: { type: #STANDARD, value: 'Salesorder' }
+      title: { type: #STANDARD, value: 'Salesorder',  label: 'Sales Order' }
 //      description: { type: #STANDARD, value: 'Salesorderitem' }
       }
       
