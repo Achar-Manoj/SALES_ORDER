@@ -24,21 +24,33 @@ annotate entity ZCMA_SALESORD_HEAD
             purpose: #STANDARD,
             parentId: 'idSalesOrderInfo'
 //            targetQualifier: 'tqSalesOrderData'
+          },
+          { id: 'idSalesOrderitem',
+            type: #LINEITEM_REFERENCE,
+            label: 'Sales Order item',
+            position: 20,
+            parentId: 'idSalesOrderInfo',
+            targetElement: '_item'
           }
     ]
+    
     @UI : { lineItem      : [ { position: 10 } ], 
             selectionField: [ { position: 10 } ],
-            identification: [ { position: 10, label: 'Sales Order', importance: #HIGH } ] }
-    @EndUserText.label: 'Sales Order'
+            identification: [ { position: 10, label: 'Sales Order', importance: #HIGH } ]
+//            fieldGroup:     [ { qualifier: 'idSalesOrderData',  position: 10 } ] 
+          }
     @Search.defaultSearchElement: true
     @Search.fuzzinessThreshold: 0.9
     @Search.ranking: #HIGH
     @Consumption.filter: {selectionType: #SINGLE, multipleSelections: true}
     Salesorder;
-    
-    @UI : { lineItem      : [ { position: 20 }],
-            selectionField: [ { position: 20 }] }
-    @UI.identification: [ { position: 10,  label: 'Sales Order Type', importance: #HIGH}]
+
+ 
+    @UI : { lineItem      : [ { position: 25 }],
+            selectionField: [ { position: 25 }]
+//            fieldGroup:     [ { qualifier: 'idSalesOrderData',  position: 25 } ] 
+          }
+    @UI.identification: [ { position: 25,  label: 'Sales Order Type', importance: #HIGH}]
     @EndUserText.label: 'Sales Order Type'
     @Search.defaultSearchElement: true
     @Consumption.filter: {selectionType: #SINGLE, multipleSelections: true}  

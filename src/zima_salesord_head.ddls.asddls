@@ -4,7 +4,7 @@
 @VDM.viewType: #COMPOSITE
 define root view entity ZIMA_SALESORD_HEAD 
 as select from ZIMA_SALESORD_HEAD_BASE as header
-composition [0..*] of ZIMA_SALESORD_ITEM as _item
+composition [1..*] of ZIMA_SALESORD_ITEM as _item
 {
     key header.Salesorder,
     header.Salesordertype,

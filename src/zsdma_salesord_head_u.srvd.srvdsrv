@@ -1,5 +1,5 @@
 @EndUserText.label: 'Sales Order Header Service Definition'
 define service ZSDMA_SALESORD_HEAD_U {
-  expose ZCMA_SALESORD_HEAD;
-  expose ZCMA_SALESORD_ITEM;
+  expose ZCMA_SALESORD_HEAD as header;
+  expose ZCMA_SALESORD_ITEM as item;
 }
